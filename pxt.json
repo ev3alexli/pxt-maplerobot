@@ -1,0 +1,17 @@
+{
+    "name": "MapleRobot",
+    "version": "0.0.1",
+    "description": "Makecode Mindstorms MapleRobot extension for coding easily.",
+    "files": [
+        "README.md",
+        "LICENSE",
+        "maplerobot.ts"
+    ],
+    "testFiles": [],
+    "public": true,
+    "dependencies": {
+        "core": "*"
+    },
+    "preferredEditor": "tsprj",
+    "installedVersion": "github:ev3alexli/pxt-maplerobot#v0.0.1"
+}
