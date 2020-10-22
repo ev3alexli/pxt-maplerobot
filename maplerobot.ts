@@ -204,6 +204,7 @@ namespace MapleRobot {
         // 7. reset
         motors.largeBC.reset()
         control.timer1.reset()
+        sensors.gyro2.reset()
         //
         // 10. define turn
         let turn = 0
@@ -301,7 +302,7 @@ namespace MapleRobot {
         //
         let turnAngle = Math.abs(targetAngle)
         // reset gyro sensor
-        //sensors.gyro2.reset()
+        sensors.gyro2.reset()
         //loops.pause(100)
         //
         let keepLooping = true
@@ -315,17 +316,17 @@ namespace MapleRobot {
             // calculate power
             let currentPower = 0.6 * (turnAngle - gyroValue) + 6
             //
-            if (turnPoint == MIDDLE) {
+            if (turnPoint == positionEnum.MIDDLE) {
                 motors.largeBC.steer(turnRatio, currentPower)
                 //brick.showNumber(MIDDLE, 1)
-            } else if (turnPoint == LEFT) {
+            } else if (turnPoint == positionEnum.LEFT) {
                 if (targetAngle > 0) {
                     motors.largeB.run(currentPower)
                 } else {
                     motors.largeB.run(0 - currentPower)
                 }
                 //brick.showNumber(LEFT, 1)
-            } else if (turnPoint == RIGHT) {
+            } else if (turnPoint == positionEnum.RIGHT) {
                 if (targetAngle > 0) {
                     motors.largeC.run(currentPower)
                 } else {
@@ -409,7 +410,7 @@ namespace MapleRobot {
         // setup PID parameters
         automation.pid1.setGains(3, 3, 0)
         // reset gyro
-        //sensors.gyro2.reset()
+        sensors.gyro2.reset()
         //sensors.gyro2.calibrate()
         // reset and start motor
         //motors.largeBC.reset()
