@@ -191,7 +191,7 @@ namespace MapleRobot {
     //% block
     //% group="Gyro"
     export function gyroMove(stopCondition: stopCondGyroEnum, stopValue: number, power: number): void {
-        power = (-1) * Math.abs(power)
+        // power = (-1) * Math.abs(power)
         // 1. get input parameters
         // let stopCondition = 3   // 0 stop on black line with another color sensor
         // let stopValue = 720  // stop when the stop color sensor got color less than stopValue
