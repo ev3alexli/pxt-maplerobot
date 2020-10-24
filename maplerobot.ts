@@ -204,7 +204,7 @@ namespace MapleRobot {
         // 7. reset
         motors.largeBC.reset()
         control.timer1.reset()
-        sensors.gyro2.reset()
+        sensors.gyro2.myreset()
         //
         // 10. define turn
         let turn = 0
@@ -302,7 +302,7 @@ namespace MapleRobot {
         //
         let turnAngle = Math.abs(targetAngle)
         // reset gyro sensor
-        sensors.gyro2.reset()
+        sensors.gyro2.myreset()
         //loops.pause(100)
         //
         let keepLooping = true
@@ -410,7 +410,7 @@ namespace MapleRobot {
         // setup PID parameters
         automation.pid1.setGains(3, 3, 0)
         // reset gyro
-        sensors.gyro2.reset()
+        sensors.gyro2.myreset()
         //sensors.gyro2.calibrate()
         // reset and start motor
         //motors.largeBC.reset()
