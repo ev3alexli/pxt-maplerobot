@@ -530,4 +530,74 @@ namespace MapleRobot {
         // stop
         motors.largeBC.stop()
     }
+
+    /**
+     * Gyro left turn with only power 30 and 10
+     * @param targetAngle Angle of turning left, eg: 90
+     */
+    //% block
+    //% group="Gyro"
+    export function gyroLeft(targetAngle: number): void {
+        sensors.gyro2.reset()
+        let power = 30
+        let gyroAngle = 0
+        if (targetAngle > 50) {
+            targetAngle = targetAngle - 3
+        } else {
+            targetAngle = targetAngle
+        }
+        let keepLooping = true
+        while (keepLooping) {
+            gyroAngle = sensors.gyro2.angle()
+            if (targetAngle <= Math.abs(gyroAngle)) {
+                keepLooping = false
+            }
+            if (targetAngle - Math.abs(gyroAngle) <= 30) {
+                power = 10
+            } else {
+                power = 30
+            }
+            motors.largeBC.steer(-200, power)
+            brick.showValue("targetAngle = ", targetAngle, 1)
+            brick.showValue("gyroAngle = ", gyroAngle, 5)
+        }
+        brick.showString("end now get out trash", 8)
+        motors.largeBC.setBrake(true)
+        motors.largeBC.stop()
+    }
+
+    /**
+     * Gyro Right turn with only power 30 and 10
+     * @param targetAngle Angle of turning right, eg: 90
+     */
+    //% block
+    //% group="Gyro"
+    export function gyroRight(targetAngle: number): void {
+        sensors.gyro2.reset()
+        let power = 30
+        let gyroAngle = 0
+        if (targetAngle > 50) {
+            targetAngle = targetAngle - 3
+        } else {
+            targetAngle = targetAngle
+        }
+        let keepLooping = true
+        while (keepLooping) {
+            gyroAngle = sensors.gyro2.angle()
+            if (targetAngle <= Math.abs(gyroAngle)) {
+                keepLooping = false
+            }
+            if (targetAngle - Math.abs(gyroAngle) <= 30) {
+                power = 10
+            } else {
+                power = 30
+            }
+            motors.largeBC.steer(200, power)
+            brick.showValue("targetAngle = ", targetAngle, 1)
+            brick.showValue("gyroAngle = ", gyroAngle, 5)
+        }
+        brick.showString("end now get out trash", 8)
+        motors.largeBC.setBrake(true)
+        motors.largeBC.stop()
+    }
 }
